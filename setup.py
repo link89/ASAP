@@ -20,7 +20,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        'dscribe>=0.4.0', 'click>=7.0', 'numpy', 'scipy', 'scikit-learn',
+        'dscribe>=0.4.0,<2.0.0', 'click>=7.0', 'numpy', 'scipy', 'scikit-learn',
         'ase', 'umap-learn', 'PyYAML', 'tqdm', 'pandas'
     ],
     extras_require={'testing': ['pytest>=5.0']},

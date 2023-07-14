@@ -173,7 +173,7 @@ class ASAPXYZ:
         add some system specific information to the list to descriptor specifications
         Parameters
         ----------
-        desc_spec_dict: dictionaries 
+        desc_spec_dict: dictionaries
                         dict that specify which global descriptor to use.
         """
         for element in desc_spec_dict.keys():
@@ -192,9 +192,9 @@ class ASAPXYZ:
         .. code-block:: python
 
             atomic_desc_dict = {
-            "firstsoap": 
+            "firstsoap":
             {"type": 'SOAP',"species": [1, 6, 7, 8], "cutoff": 2.0, "atom_gaussian_width": 0.2, "n": 4, "l": 4}}
-        
+
         sbs: array, integer
              the index of the subset of structures to compute
         """
@@ -236,33 +236,33 @@ class ASAPXYZ:
         e.g.
         .. code-block:: python
 
-            {'global_desc1': 
+            {'global_desc1':
                           {"type": 'CM'}}
 
             # or
 
-            {'global_desc2': 
-                          {'atomic_descriptor': 
-                                       atomic_desc_dict, 
-                           'reducer_function': 
+            {'global_desc2':
+                          {'atomic_descriptor':
+                                       atomic_desc_dict,
+                           'reducer_function':
                                        reducer_dict
                           }}
-        
+
             atomic_desc_dict = {
-                              "firstsoap": 
+                              "firstsoap":
                                        {"type": 'SOAP',
-                                       "species": [1, 6, 7, 8], 
-                                       "cutoff": 2.0, 
-                                       "atom_gaussian_width": 0.2, 
-                                       "n": 4, 
+                                       "species": [1, 6, 7, 8],
+                                       "cutoff": 2.0,
+                                       "atom_gaussian_width": 0.2,
+                                       "n": 4,
                                        "l": 4}}
-        
-            reducer_dict = {'first_reducer': 
-                                     {'reducer_type': reducer_type,  
+
+            reducer_dict = {'first_reducer':
+                                     {'reducer_type': reducer_type,
                                      'zeta': zeta,
                                      'species': species,
                                      'element_wise': element_wise}}
-        
+
         sbs: array, integer
              list of the indexes of the subset
         """
@@ -306,7 +306,7 @@ class ASAPXYZ:
         Fetch the computed descriptors for selected frames
         Parameters
         ----------
-        desc_spec_keys: a list (str-like) of keys 
+        desc_spec_keys: a list (str-like) of keys
                     for which computed descriptors to fetch.
         sbs: array, integer
 
@@ -351,10 +351,10 @@ class ASAPXYZ:
 
     def _parse_computed_atomic_descriptors_singleframe(self, desc_dict_keys=[], i=0):
         """return the atomic descriptor computed for frame i"""
-        return np.hstack( self.atomic_desc[i][e]['atomic_descriptors'] for e in desc_dict_keys)
+        return np.hstack([self.atomic_desc[i][e]['atomic_descriptors'] for e in desc_dict_keys])
 
     def _write_computed_descriptors_to_xyz(self, desc_dict_now, frame):
-        """  
+        """
         we recorded the computed descriptors to the xyz object
         we use acronym to record the entry in the extended xyz file, so it's much easier to ready by human
         """
@@ -372,7 +372,7 @@ class ASAPXYZ:
                         self.tag_to_acronym['global'][e][e2][e3] = desc_dict_now[e][e2][e3]['acronym']
 
     def _write_computed_atomic_descriptors_to_xyz(self, atomic_desc_dict_now, frame):
-        """  
+        """
         we recorded the computed descriptors to the xyz object
         we use acronym to record the entry in the extended xyz file, so it's much easier to ready by human
         """
@@ -427,7 +427,7 @@ class ASAPXYZ:
                       the atomic number of the species selected.
                       Only the desciptors of atoms of the specified specied will be returned.
                       species_name=None means all atoms are selected.
-                      
+
         Returns
         -------
         desc: np.matrix
@@ -471,7 +471,7 @@ class ASAPXYZ:
                         the atomic number of the species selected.
                         Only the desciptors of atoms of the specified specied will be returned.
                     species_name=None means all atoms are selected.
-                         
+
         Returns
         -------
         atomic_desc: np.matrix
@@ -702,7 +702,7 @@ class ASAPXYZ:
 
         Parameters
         ----------
-        filename: str 
+        filename: str
                 Name of the CSV file.
         header: int
             Row number of the header. Defaults to use the first row unless explicit
@@ -780,7 +780,7 @@ class ASAPXYZ:
         Parameters
         ----------
         filename: str
-        desc_name_list: a list of str. 
+        desc_name_list: a list of str.
                 Name of the properties/descriptors to write
         sbs: array, integer
         comment: str
